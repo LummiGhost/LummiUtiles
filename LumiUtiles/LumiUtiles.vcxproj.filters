@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Async">
+      <UniqueIdentifier>{279868c0-933c-48d6-a140-4143306436d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exception">
+      <UniqueIdentifier>{7ee582a4-821a-405c-93fe-dbc0574fcc79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Types">
+      <UniqueIdentifier>{7ffe6d3e-29ce-4115-89ae-9687749538e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO">
+      <UniqueIdentifier>{7f206f5a-883f-4a95-9aed-5325f32fb250}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO\File">
+      <UniqueIdentifier>{a267ac45-0027-4597-9a63-fb62824c4eb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{e6f19bad-c1a8-4782-9d04-7e6ffdb72802}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO\Socket">
+      <UniqueIdentifier>{9ec49214-9825-467c-a78a-dd69b131771b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Exception\basicException.cppm">
+      <Filter>Exception</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cppm">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Async.ixx">
+      <Filter>Async</Filter>
+    </ClCompile>
+    <ClCompile Include="delegation.cppm">
+      <Filter>Async</Filter>
+    </ClCompile>
+    <ClCompile Include="event.cppm">
+      <Filter>Async</Filter>
+    </ClCompile>
+    <ClCompile Include="promise.cppm">
+      <Filter>Async</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Exception\Exception.ixx">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="LumiUtiles.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="File.ixx">
+      <Filter>IO\File</Filter>
+    </ClCompile>
+    <ClCompile Include="IO.ixx">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket.ixx">
+      <Filter>IO\Socket</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
