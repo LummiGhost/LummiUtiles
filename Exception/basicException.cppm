@@ -4,9 +4,9 @@ import std;
 
 namespace LumiUtiles::Exception {
 
-	static std::string _at_here(const char* file, int line) noexcept {
+	static std::string _at_here(const char* file, const char* function, int line) noexcept {
 		std::stringstream ss;
-		ss << file << ":" << line;
+		ss << function << '( ' << file << ": " << line << ' )';
 		return ss.str();
 	}
 
@@ -21,7 +21,7 @@ namespace LumiUtiles::Exception {
 		return ss;
 	}
 
-#define LUMI_EXCEPTION_THROW_AT_HERE _at_here(__FILE__, __LINE__)
+#define LUMI_EXCEPTION_THROW_AT_HERE _at_here(__FILE__, __FUNCTION__, __LINE__)
 
     class basic_exception :
         public std::exception
@@ -35,6 +35,9 @@ namespace LumiUtiles::Exception {
 		std::string at_where;
 		std::exception_ptr nested_exception;
 		std::map<std::string, std::any> data;
+#ifndef LUMI_EXCEPTION_NO_STACK_TRACE
+		std::vector<std::string> stack_trace;
+#endif
 
     public:
 		basic_exception() = default;
@@ -45,20 +48,20 @@ namespace LumiUtiles::Exception {
 		virtual const char* what() const noexcept override {
 			//return message.c_str();
 			std::stringstream ss;
-			ss << type().name() << ": " << message;
-			ss << " \tAt: " << at_where;
-			if (!data.empty()) {
-				//ss << "\nData:";
-				for (const auto& [key, value] : data) {
-					ss << "\n\t" << key << ":\t" << value.type().name();
-				}
+			ss << type().name();
+			ss << "  At: " << at_where;
+			ss << "\n\t" << message;
+			//ss << "\nData:";
+			for (const auto& [key, value] : data) {
+				ss << "\n\t$" << key << " : " << value.type().name();
+				/// TODO: print value
 			}
 			if (nested_exception) {
 				try {
 					std::rethrow_exception(nested_exception);
 				}
 				catch (const std::exception& e) {
-					ss << "\nNested exception: " << e.what();
+					ss << "\nCause By: " << e.what();
 				}
 			}
 			return ss.str().c_str();

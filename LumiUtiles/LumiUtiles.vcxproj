@@ -146,6 +146,7 @@
     <ClInclude Include="framework.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ErrorNumber.cppm" />
     <ClCompile Include="Socket.ixx" />
     <ClInclude Include="..\Exception\basicException.cppm" />
     <ClCompile Include="..\Exception\Exception.ixx" />
